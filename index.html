@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>MBTI診断テスト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap');
 
@@ -104,3 +110,64 @@
     }
   }
 </style>
+
+</head>
+<body>
+  <h1>MBTI診断テスト</h1>
+
+  <form id="mbtiForm">
+    <div class="question">
+      <p>Q1. 大人数で過ごすと元気になる</p>
+      <label><input type="radio" name="q1" value="E" required> はい</label>
+      <label><input type="radio" name="q1" value="I"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q2. 初対面の人と話すのは得意</p>
+      <label><input type="radio" name="q2" value="E" required> はい</label>
+      <label><input type="radio" name="q2" value="I"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q3. 現実的な情報のほうが信頼できる</p>
+      <label><input type="radio" name="q3" value="S" required> はい</label>
+      <label><input type="radio" name="q3" value="N"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q4. 直感やひらめきで動くことが多い</p>
+      <label><input type="radio" name="q4" value="N" required> はい</label>
+      <label><input type="radio" name="q4" value="S"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q5. 決断は論理的に下したい</p>
+      <label><input type="radio" name="q5" value="T" required> はい</label>
+      <label><input type="radio" name="q5" value="F"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q6. 人の気持ちを傷つけないか気になる</p>
+      <label><input type="radio" name="q6" value="F" required> はい</label>
+      <label><input type="radio" name="q6" value="T"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q7. 計画通りに物事を進めるのが好き</p>
+      <label><input type="radio" name="q7" value="J" required> はい</label>
+      <label><input type="radio" name="q7" value="P"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q8. 予定を決めずにその場で判断したい</p>
+      <label><input type="radio" name="q8" value="P" required> はい</label>
+      <label><input type="radio" name="q8" value="J"> いいえ</label>
+    </div>
+
+    <button type="submit">診断する</button>
+  </form>
+
+  <div id="result"></div>
+  <script src="mbti.js"></script>
+</body>
+</html>
