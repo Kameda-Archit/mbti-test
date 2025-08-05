@@ -1,148 +1,106 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>MBTI診断テスト</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-  <style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap');
+
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    max-width: 720px;
+    margin: auto;
+    padding: 2em;
+    background: linear-gradient(to bottom, #fffde7, #fff3e0);
+    color: #333;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    background-color: #fff176;
+    padding: 0.8em;
+    border-radius: 1em;
+    color: #d84315;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2em;
+  }
+
+  .question {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: white;
+    border-left: 6px solid #ffb74d;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+
+  .question p {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff5722;
+  }
+
+  label {
+    display: inline-block;
+    margin-right: 20px;
+    background: #e1f5fe;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  input[type="radio"]:checked + label {
+    background: #81d4fa;
+    font-weight: bold;
+    color: #0d47a1;
+  }
+
+  button {
+    padding: 14px 28px;
+    font-size: 16px;
+    background-color: #ffca28;
+    color: #5d4037;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background-color: #ffb300;
+  }
+
+  #result {
+    margin-top: 30px;
+    padding: 24px;
+    border-radius: 16px;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    text-align: center;
+  }
+
+  #result.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 600px) {
     body {
-      font-family: 'Noto Sans JP', sans-serif;
-      max-width: 720px;
-      margin: auto;
-      padding: 2em;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    h1 {
-      text-align: center;
-      color: #3b3b3b;
-      margin-bottom: 2em;
-    }
-
-    .question {
-      margin-bottom: 24px;
-      padding: 16px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .question p {
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    label {
-      display: inline-block;
-      margin-right: 20px;
+      padding: 1em;
     }
 
     button {
-      padding: 14px 28px;
-      font-size: 16px;
-      background-color: #4285f4;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: block;
-      margin: 40px auto;
-      transition: background 0.2s ease;
+      width: 100%;
+      font-size: 18px;
     }
 
-    button:hover {
-      background-color: #3367d6;
+    .question {
+      padding: 12px;
     }
-
-    #result {
-      margin-top: 30px;
-      padding: 24px;
-      border-radius: 14px;
-      font-size: 1.2em;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    #result.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 1em;
-      }
-
-      button {
-        width: 100%;
-        font-size: 18px;
-      }
-
-      .question {
-        padding: 12px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <h1>MBTI診断テスト</h1>
-
-  <form id="mbtiForm">
-    <div class="question">
-      <p>Q1. 大人数で過ごすと元気になる</p>
-      <label><input type="radio" name="q1" value="E" required> はい</label>
-      <label><input type="radio" name="q1" value="I"> いいえ</label>
-    </div>
-
-    <div class="question">
-      <p>Q2. 初対面の人と話すのは得意</p>
-      <label><input type="radio" name="q2" value="E" required> はい</label>
-      <label><input type="radio" name="q2" value="I"> いいえ</label>
-    </div>
-
-    <div class="question">
-      <p>Q3. 現実的な情報のほうが信頼できる</p>
-      <label><input type="radio" name="q3" value="S" required> はい</label>
-      <label><input type="radio" name="q3" value="N"> いいえ</label>
-    </div>
-
-    <div class="question">
-      <p>Q4. 直感やひらめきで動くことが多い</p>
-      <label><input type="radio" name="q4" value="N" required> はい</label>
-      <label><input type="radio" name="q4" value="S"> いいえ</label>
-    </div>
-
-    <div class="question">
-      <p>Q5. 決断は論理的に下したい</p>
-      <label><input type="radio" name="q5" value="T" required> はい</label>
-      <label><input type="radio" name="q5" value="F"> いいえ</label>
-    </div>
-
-    <div class="question">
-      <p>Q6. 人の気持ちを傷つけないか気になる</p>
-      <label><input type="radio" name="q6" value="F" required> はい</label>
-      <label><input type="radio" name="q6" value="T"> いいえ</label>
-    </div>
-
-    <div class="question">
-      <p>Q7. 計画通りに物事を進めるのが好き</p>
-      <label><input type="radio" name="q7" value="J" required> はい</label>
-      <label><input type="radio" name="q7" value="P"> いいえ</label>
-    </div>
-
-    <div class="question">
-      <p>Q8. 予定を決めずにその場で判断したい</p>
-      <label><input type="radio" name="q8" value="P" required> はい</label>
-      <label><input type="radio" name="q8" value="J"> いいえ</label>
-    </div>
-
-    <button type="submit">診断する</button>
-  </form>
-
-  <div id="result"></div>
-  <script src="mbti.js"></script>
-</body>
-</html>
+  }
+</style>
