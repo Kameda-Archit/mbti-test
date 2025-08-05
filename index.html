@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>MBTI診断テスト</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 2em;
+      background-color: #fafafa;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      display: block;
+      margin: 30px auto;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3367d6;
+    }
+
+    #result {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    #result.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <h1>MBTI診断テスト</h1>
+
+  <form id="mbtiForm">
+    <!-- E/I軸 -->
+    <div class="question">
+      <p>Q1. 大人数で過ごすと元気になる</p>
+      <label><input type="radio" name="q1" value="E" required> はい</label>
+      <label><input type="radio" name="q1" value="I"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q2. 初対面の人と話すのは得意</p>
+      <label><input type="radio" name="q2" value="E" required> はい</label>
+      <label><input type="radio" name="q2" value="I"> いいえ</label>
+    </div>
+
+    <!-- S/N軸 -->
+    <div class="question">
+      <p>Q3. 現実的な情報のほうが信頼できる</p>
+      <label><input type="radio" name="q3" value="S" required> はい</label>
+      <label><input type="radio" name="q3" value="N"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q4. 直感やひらめきで動くことが多い</p>
+      <label><input type="radio" name="q4" value="N" required> はい</label>
+      <label><input type="radio" name="q4" value="S"> いいえ</label>
+    </div>
+
+    <!-- T/F軸 -->
+    <div class="question">
+      <p>Q5. 決断は論理的に下したい</p>
+      <label><input type="radio" name="q5" value="T" required> はい</label>
+      <label><input type="radio" name="q5" value="F"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q6. 人の気持ちを傷つけないか気になる</p>
+      <label><input type="radio" name="q6" value="F" required> はい</label>
+      <label><input type="radio" name="q6" value="T"> いいえ</label>
+    </div>
+
+    <!-- J/P軸 -->
+    <div class="question">
+      <p>Q7. 計画通りに物事を進めるのが好き</p>
+      <label><input type="radio" name="q7" value="J" required> はい</label>
+      <label><input type="radio" name="q7" value="P"> いいえ</label>
+    </div>
+
+    <div class="question">
+      <p>Q8. 予定を決めずにその場で判断したい</p>
+      <label><input type="radio" name="q8" value="P" required> はい</label>
+      <label><input type="radio" name="q8" value="J"> いいえ</label>
+    </div>
+
+    <button type="submit">診断する</button>
+  </form>
+
+  <div id="result"></div>
+  <script src="mbti.js"></script>
+</body>
+</html>
